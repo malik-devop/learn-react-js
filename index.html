@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" ></script>
+    <!-- <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js" ></script> -->
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js" ></script>
+
+  <title>Document</title>
+  <style>
+    h1 {
+      color: #fff
+    }
+    #h1 {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+      <div id="root"></div>
+   <script type="text/babel">
+    //=> utilisons les states
+      class BonjourClass extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            message: "This is my first test with jsx",
+            version: "16",
+
+          };
+        }
+        
+        handleChange(event) {
+          this.setState({
+            version : event.target.value
+          })
+        }
+        render() {
+          return (
+            <div>
+            <h1 id="h1" >{this.state.message}</h1>
+            <p>version {this.state.version}</p>
+            <input type="text" onChange={this.handleChange}/>
+          </div>
+            )
+        }
+    }
+
+     ReactDOM.render(
+            <BonjourClass />,
+            document.getElementById("root")
+        )
+
+    // =======================
+    //=> utilisons les props
+      // class BonjourClass extends React.Component {
+
+      //   render() {
+      //     return <h1 id="h1" >{this.props.message}</h1>
+      //   }
+      // }
+    // const BonjourClass = (props) => <h1 id="h1" >{props.message}</h1>
+
+    //  ReactDOM.render(
+    //         <BonjourClass message="This is my first test with jsx"/>,
+    //         document.getElementById("root")
+    //     )
+    // ========
+    //=> un composant fonctionnel est une fonction en javascript
+    // const Bonjour = () => <h1 id="h1" >This is my first test with jsx</h1>
+    //  ReactDOM.render(
+    //         <Bonjour />,
+    //         document.getElementById("root")
+    //     )
+    // =======
+    // class Text  extends React.Component {
+    //   render() {
+    //     return <h1>This is my first test with jsx</h1>
+    //   }
+    // }
+        // externlize h1 tag
+        // ReactDOM.render(
+        //     <Text />,
+        //     document.getElementById("root")
+        // )
+        // =======
+        // with jsx
+        // ReactDOM.render(
+        //     <h1>This is my first test with jsx</h1>,
+        //     document.getElementById("root")
+        // )
+        // ========
+        // without jsx
+        //     React.createElement("h1", null, "hello malik!"),
+        //     document.getElementById("root")
+        // )
+        
+    </script>
+</body>
+</html>
